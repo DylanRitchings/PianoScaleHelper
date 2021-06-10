@@ -3,9 +3,11 @@ const notes = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
 
 
 const modes = {
-    "major":[2,2,1,2,2,2,1],
-    "minor":[2,1,2,2,1,2,2],
-    "jazz?": [3,2,1,1,3,0]
+    "major": [2,2,1,2,2,2,1],
+    "minor": [2,1,2,2,1,2,2],
+    "blues": [3,2,1,1,3,0],
+    "lydian": [2,2,2,1,2,2,1],
+    "phrygian": [1,2,2,2,1,2,2]
 };
 
 function fillSelect(){
@@ -15,6 +17,27 @@ function fillSelect(){
         option.text=modeName;
         select.add(option);
     }
+}
+
+function createPiano(modeNotes){
+    const piano = document.createElement("div");
+    piano.setAttribute("class","piano");
+
+    for (let noteName of notes){
+        let note = document.createElement("div");
+        note.setAttribute("id",noteName);
+        //If key is in modeNotes:
+        note.setAttribute("className","key red");
+        //If key is #:
+        note.setAttribute("className","key black");
+        //else:
+        note.setAttribute("className","key white");
+
+    }
+    const c = document.createElement("div");
+    c.setAttribute("id","C");
+    c.setAttribute("className","key white");
+
 }
 
 function outputScale(root,mode) {
